@@ -268,11 +268,11 @@ egov-user:
   decryption-abac-enabled: "false"
 
 audit-service:
-  persist-yml-path: "https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/egov-workflow-v2-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/facility-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/hcm-moz-impl-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/household-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/hrms-employee-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/individual-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/stock-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/service-request-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/project-task-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/project-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/product-persister.yml"
+  persist-yml-path: "https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/egov-workflow-v2-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/facility-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/hcm-moz-impl-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/household-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/hrms-employee-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/individual-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/stock-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/service-request-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/project-task-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/project-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/PROD/egov-persister/product-persister.yml"
   initContainers:
     gitSync:
       repo: "git@github.com:HCM-CONGO/health-campaign-config"
-      branch: "QA"
+      branch: "PROD"
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #egov-mdms-service:
@@ -296,21 +296,21 @@ audit-service:
 #  java-args: -Dspring.profiles.active=monitoring
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-egov-mdms-create:
-  heap: "-Xmx256m -Xms256m"
-  replicas: 1
-  images:
-    - egovio/egov-mdms-create
-  mdms-path: "/work-dir/health-campaign-mdms/data"
-  initContainers:
-    gitSync:
-      repo: "git@github.com:HCM-CONGO/health-campaign-mdms"   ##### Change repo url with Your fork Repo url
-      branch: "QA"                                        ##### Change repo branch with Your fork Repo branch
-  mdms-folder: "health-campaign-mdms"
-  masters-config-url: "file:///work-dir/health-campaign-mdms/master-config.json"
-  git-repo-path: "file:///work-dir/health-campaign-mdms/"
-  egov-repo-branch: "QA"
-  java-args: -Dspring.profiles.active=monitoring
+# egov-mdms-create:
+#   heap: "-Xmx256m -Xms256m"
+#   replicas: 1
+#   images:
+#     - egovio/egov-mdms-create
+#   mdms-path: "/work-dir/health-campaign-mdms/data"
+#   initContainers:
+#     gitSync:
+#       repo: "git@github.com:HCM-CONGO/health-campaign-mdms"   ##### Change repo url with Your fork Repo url
+#       branch: "QA"                                        ##### Change repo branch with Your fork Repo branch
+#   mdms-folder: "health-campaign-mdms"
+#   masters-config-url: "file:///work-dir/health-campaign-mdms/master-config.json"
+#   git-repo-path: "file:///work-dir/health-campaign-mdms/"
+#   egov-repo-branch: "QA"
+#   java-args: -Dspring.profiles.active=monitoring
 
 egov-indexer:
   heap: "-Xmx512m -Xms512m"
@@ -318,7 +318,7 @@ egov-indexer:
   initContainers:
     gitSync:
       repo: "git@github.com:HCM-CONGO/health-campaign-config"        ##### Change repo url with Your fork Repo url
-      branch: "QA"                                      ##### Change repo branch with Your fork Repo branch
+      branch: "PROD"                                      ##### Change repo branch with Your fork Repo branch
   egov-indexer-yaml-repo-path: "file:///work-dir/health-campaign-config/egov-indexer/transformer-pgr-services.yml,file:///work-dir/health-campaign-config/egov-indexer/error-queue.yml,file:///work-dir/health-campaign-config/egov-indexer/product-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/individual-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/household-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-task-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/stock-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/facility-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-staff-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/egov-error-queue-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/pgr-services.yml,file:///work-dir/health-campaign-config/egov-indexer/service-request-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/referral-management-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/attendance-service-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/plan-service-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/census-service-indexer.yml"
 
 egov-persister:
@@ -329,7 +329,7 @@ egov-persister:
   initContainers:
     gitSync:
       repo: "git@github.com:HCM-CONGO/health-campaign-config"      ##### Change repo url with Your fork Repo url
-      branch: "QA"                                    ##### Change repo branch with Your fork Repo branch
+      branch: "PROD"                                    ##### Change repo branch with Your fork Repo branch
 
 #egov-data-uploader:
 #  initContainers:
@@ -349,7 +349,7 @@ dashboard-analytics:
   initContainers:
     gitSync:
       repo: "git@github.com:HCM-CONGO/health-campaign-config"      ##### Change repo url with Your fork Repo url
-      branch: "QA"                                    ##### Change repo branch with Your fork Repo branch
+      branch: "PROD"                                    ##### Change repo branch with Your fork Repo branch
   java-enable-debug: true
 
 # gateway >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -633,7 +633,7 @@ grafana:
     gitSync:
       enabled: true
       repo: "git@github.com:HCM-CONGO/health-campaign-config" #REPLACE with your configs repo
-      branch: "QA" #REPLACE with config repo branch name
+      branch: "PROD" #REPLACE with config repo branch name
   dashboardsFolder: /work-dir/health-campaign-config/monitoring-dashboards
 project:
   replicas: 1
@@ -694,6 +694,6 @@ pdf-service:
   initContainers:
     gitSync:
       repo: "git@github.com:HCM-CONGO/health-campaign-config"    
-      branch: "QA"   
+      branch: "PROD"   
   data-config-urls: "file:///work-dir/health-campaign-config/pdf-service/data-config/health-bill-payment.json"
   format-config-urls: "file:///work-dir/health-campaign-config/pdf-service/format-config/health-bill-payment.json"

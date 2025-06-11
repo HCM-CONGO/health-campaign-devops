@@ -437,8 +437,6 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-localization
-  - name: EGOV_BOUNDARY_LOCALIZATION_PREFIX
-    value: ""
   - name: EGOV_BOUNDARY_LOCALIZATION_HOST
     valueFrom:
       configMapKeyRef:
@@ -451,7 +449,7 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: attendance-service        
-    - name: EGOV_BOUNDARY_HIERARCHY_TYPE
+  - name: EGOV_BOUNDARY_HIERARCHY_TYPE
     valueFrom:
       configMapKeyRef:
         name: egov-config
@@ -470,11 +468,6 @@ env: |
     value: rainmaker-boundary-admin
   - name: EGOV_BOUNDARY_LOCALIZATION_LOCALE
     value: fr_CG
-  - name: EGOV_LOCALIZATION_HOST
-    valueFrom:
-      configMapKeyRef:
-        name: egov-service-host
-        key: egov-localization
   - name: EGOV_BOUNDARY_LOCALIZATION_PREFIX
   - name: EGOV_INGESTION_INTERVAL_MIN_DATE
     value: "1737552887000"
