@@ -10,6 +10,11 @@ resource "azurerm_kubernetes_cluster" "aks" {
     vm_size    = "${var.vm_size}"
     node_count = "${var.node_count}"
     vnet_subnet_id   = "${var.subnet_id}"
+
+  }
+
+  lifecycle {
+    ignore_changes = [ "microsoft_defender", "default_node_pool[0].upgrade_settings" ]
   }
 
   service_principal {

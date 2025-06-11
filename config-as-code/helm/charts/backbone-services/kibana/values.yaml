@@ -158,15 +158,26 @@ ingress:
     nginx.ingress.kubernetes.io/lua-resty-waf-debug: "true"
     nginx.ingress.kubernetes.io/lua-resty-waf-process-multipart-body: "false"
     nginx.ingress.kubernetes.io/lua-resty-waf-score-threshold: "10"
-    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"    
+    
   hosts:
-    - host: crs-nigeria-uat.digit.org
+    - host: congodigit.com
       paths:
         - path: /kibana-upgrade
   tls: 
-   - secretName: crs-nigeria-uat.digit.org-tls-certs
-     hosts:
-       - crs-nigeria-uat.digit.org
+    - secretName: congodigit.com-tls-certs
+      hosts:
+        - congodigit.com
+    
+    
+  # hosts:
+  #   - host: crs-nigeria-uat.digit.org
+  #     paths:
+  #       - path: /kibana-upgrade
+  # tls: 
+  #  - secretName: crs-nigeria-uat.digit.org-tls-certs
+  #    hosts:
+  #      - crs-nigeria-uat.digit.org
 #  hosts:
 #    - host: salama.digit.org
 #      paths:
