@@ -18,7 +18,7 @@ repositories:
 releases:
 
 - name: loki-stack
-  installed: false
+  installed: true
   namespace: {{ .Values.namespace | default "default-namespace" }}
   chart: grafana/loki-stack
   version: 2.10.1

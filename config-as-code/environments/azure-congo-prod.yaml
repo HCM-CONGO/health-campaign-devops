@@ -764,23 +764,19 @@ loki:
       boltdb_shipper:
         active_index_directory: /data/loki/index
         cache_location: /data/loki/index_cache
-        shared_store: azure                           ## AWS s3 as storage
+        shared_store: azure
         cache_ttl: 24h
       azure:
-        use_service_principal: true
-        tenant_id : <TENANT_ID>
-        # Azure Service Principal ID
-        client_id: <CLIENT_ID>
-        # Azure Service Principal secret key
-        client_secret: <CLIENT_SECRET>
-        # See https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction#containers
-        container_name: cglokisaprd
+        container_name: loki        # Your Azure Storage Container
+        account_name: cglokisaprd         # Your Azure Storage Account
+        account_key: <ACCOUNT_KEY_FOR_STORAGE_ACCOUNT>              # Or use managed identity
+        use_managed_identity: false
         request_timeout: 0
     compactor:
       working_directory: /data/loki/boltdb-shipper-compactor
-      shared_store: azure                             ## AWS s3 as storage
+      shared_store: azure
       retention_enabled: true
-      compaction_interval: 168h                    ## compaction in hours
+      compaction_interval: 168h
     table_manager:
       retention_deletes_enabled: true
-      retention_period: 168h  
+      retention_period: 168h
