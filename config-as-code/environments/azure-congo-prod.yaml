@@ -579,12 +579,12 @@ elasticsearch-data:
       - diskName: "es-data-v1-2"  ## add diskName
         diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-rg-prod_congo-hcm-prod_southafricanorth/providers/Microsoft.Compute/disks/es-data-2"## Azure diskURI
 
-  esJavaOpts: "-Xmx3g -Xms3g"
+  esJavaOpts: "-Xmx5g -Xms5g"
   resources:
     requests:
-      memory: "4Gi"
+      memory: "6Gi"
     limits:
-      memory: "4Gi"
+      memory: "6Gi"
 
 elasticsearch-master:
   namespace: es-cluster-v8
@@ -601,12 +601,12 @@ elasticsearch-master:
       - diskName: "es-master-2"  ## add diskName
         diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-rg-prod_congo-hcm-prod_southafricanorth/providers/Microsoft.Compute/disks/es-master-2"## Azure diskURI
 
-  esJavaOpts: "-Xmx448m -Xms448m"
+  esJavaOpts: "-Xmx1024m -Xms1024m"
   resources:
     requests:
-      memory: "896Mi"
+      memory: "1536Mi"
     limits:
-      memory: "896Mi"
+      memory: "1536Mi"
 
 
 
@@ -635,6 +635,7 @@ grafana:
       repo: "git@github.com:HCM-CONGO/health-campaign-config" #REPLACE with your configs repo
       branch: "PROD" #REPLACE with config repo branch name
   dashboardsFolder: /work-dir/health-campaign-config/monitoring-dashboards
+
 project:
   replicas: 1
   heap: "-Xmx2g -Xms2g"
