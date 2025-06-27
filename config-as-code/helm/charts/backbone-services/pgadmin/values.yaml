@@ -27,7 +27,7 @@ image:
 
 replicas: "1"
 httpPort: "8080"
-dbUrl: "azure-congo-uat-server.postgres.database.azure.com"
+dbUrl: "azure-congo-rg-prod-server.postgres.database.azure.com"
 dbPort: "5432"
 dbWriteUser: "read"
 dbReadUser: "write"
