@@ -56,7 +56,7 @@ modules:
       - "business"
     services:
       - egovio/employee:v1.8.0-2ac8314b2f-116
-      - egovio/digit-ui:barchart-stack-ad8a3da5cf-231
+      - egovio/digit-ui:master-impel-congo-a808419143-381
   - name: m_dss   #dss
     dependencies:
       - "frontend"
